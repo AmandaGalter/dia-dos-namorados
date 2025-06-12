@@ -1,0 +1,135 @@
+:root {
+  --cor-fundo: #fff0f5;
+  --cor-texto: #333;
+  --cor-destaque: #ffb6c1;
+  --cor-botao: #ff69b4;
+  --cor-botao-hover: #ff1493;
+  --cor-fundo-caixa: #ffffff;
+  --cor-footer: #ffe4e1;
+  --cor-resultado: #e91e63;
+}
+
+body.tema-escuro {
+  --cor-fundo: #3E2C2C;
+  --cor-texto: #F5EDE0;
+  --cor-destaque: #d4bc93;
+  --cor-botao: #B94E48;
+  --cor-botao-hover: #8C3A3A;
+  --cor-fundo-caixa: #5B4033;
+  --cor-footer: #2D1B14;
+  --cor-resultado: #D86F60;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.carousel {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.carousel-images {
+  display: flex;
+  width: 500%; /* 5 imagens */
+  animation: slide 25s ease-in-out infinite;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* 👇 Animação corrigida */
+@keyframes slide {
+  0%    { transform: translateX(0%); }
+  20%   { transform: translateX(-100%); }
+  40%   { transform: translateX(-200%); }
+  60%   { transform: translateX(-300%); }
+  80%   { transform: translateX(-400%); }
+  100%  { transform: translateX(0%); }
+}
+
+header {
+  background: var(--cor-destaque);
+  color: white;
+  padding: 2em;
+}
+
+h1, h2 {
+  margin-bottom: 0.3em;
+}
+
+button {
+  background: var(--cor-botao);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 1em;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: var(--cor-botao-hover);
+}
+
+.foto img {
+  max-width: 90%;
+  border-radius: 10px;
+  margin: 1em 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.carta, .timeline, .surpresa, .quiz, .quiz-container {
+  padding: 1.5em;
+  margin: 1em auto;
+  max-width: 700px;
+  background: var(--cor-fundo-caixa);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.timeline ul {
+  list-style: none;
+  padding: 0;
+}
+
+.timeline li {
+  margin: 0.5em 0;
+}
+
+footer {
+  padding: 1em;
+  background: var(--cor-footer);
+  color: #444;
+}
+
+.pergunta {
+  margin-bottom: 1.5em;
+  text-align: left;
+}
+
+.resultado {
+  font-size: 1.2em;
+  margin-top: 1em;
+  font-weight: bold;
+  color: var(--cor-resultado);
+}
+
+#mensagemSecreta {
+  transition: all 0.5s ease-in-out;
+}

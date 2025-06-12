@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz do Amor 💞</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Quiz do Nosso Amor 💘</h1>
+    <p>Vamos ver o quanto você me conhece 😏</p>
+  </header>
+
+  <main class="quiz-container">
+    <form id="quizForm">
+      <div class="pergunta">
+        <p>1. Que dia a gente se viu pela primeira vez?</p>
+        <label><input type="radio" name="q1" value="a" /> 22/03/2024</label><br>
+        <label><input type="radio" name="q1" value="b" /> 25/02/2024</label><br>
+        <label><input type="radio" name="q1" value="c" /> 01/02/2024</label>
+      </div>
+
+      <div class="pergunta">
+        <p>2. Qual é o meu clima favorito?</p>
+        <label><input type="radio" name="q2" value="a" /> solzinho, mas não muito calor</label><br>
+        <label><input type="radio" name="q2" value="b" /> um dia fresco e nublado</label><br>
+        <label><input type="radio" name="q2" value="c" /> sol quente até falar chega</label>
+      </div>
+
+      <div class="pergunta">
+        <p>3. Qual é minha cor mais favorita?</p>
+        <label><input type="radio" name="q3" value="a" /> rosa clarinho</label><br>
+        <label><input type="radio" name="q3" value="b" /> verde água</label><br>
+        <label><input type="radio" name="q3" value="c" /> amarelo mostarda</label>
+      </div>
+
+      <div class="pergunta">
+        <p>4. Qual hino é o “nosso hino”?</p>
+        <label><input type="radio" name="q4" value="a" /> 01</label><br>
+        <label><input type="radio" name="q4" value="b" /> 440</label><br>
+        <label><input type="radio" name="q4" value="c" /> 80</label>
+      </div>
+
+      <div class="pergunta">
+        <p>5. Qual música especial me faz lembrar da gente?</p>
+        <label><input type="radio" name="q5" value="a" /> Mystical Magical - Benson Boone</label><br>
+        <label><input type="radio" name="q5" value="b" /> Dye with a Smile - Bruno Mars</label><br>
+        <label><input type="radio" name="q5" value="c" /> Robocop gay - Mamonas Assassinas</label>
+      </div>
+
+      <div class="pergunta">
+        <p>6. Se a gente tivesse um pet, qual seria?</p>
+        <label><input type="radio" name="q6" value="a" /> Um cachorro caramelo</label><br>
+        <label><input type="radio" name="q6" value="b" /> Uma aranha fofinha</label><br>
+        <label><input type="radio" name="q6" value="c" /> Uma ratinha e um ratinho</label>
+      </div>
+
+      <div class="pergunta">
+        <p>7. Qual presente simples me deixaria feliz?(todos, mas um é espacial)</p>
+        <label><input type="radio" name="q7" value="a" /> Uma cartinha sua</label><br>
+        <label><input type="radio" name="q7" value="b" /> Um piquenique só nosso</label><br>
+        <label><input type="radio" name="q7" value="c" /> Uma playlist feita por você</label>
+      </div>
+
+      <button type="submit">Ver resultado</button>
+    </form>
+
+    <div id="resultado" class="resultado" style="display: none;"></div>
+  </main>
+
+  <script>
+    const respostasCorretas = {
+      q1: 'b',
+      q2: 'a',
+      q3: 'a',
+      q4: 'c',
+      q5: 'b',
+      q6: 'c',
+      q7: 'a'
+    };
+
+    document.getElementById('quizForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      let pontuacao = 0;
+      const form = new FormData(this);
+
+      for (let [questao, resposta] of Object.entries(respostasCorretas)) {
+        if (form.get(questao) === resposta) {
+          pontuacao++;
+        }
+      }
+
+      const resultado = document.getElementById('resultado');
+      resultado.style.display = 'block';
+
+      if (pontuacao === Object.keys(respostasCorretas).length) {
+        resultado.innerHTML = `🎉 UAU! Você me conhece perfeitamente! 🥰 (${pontuacao}/7)`;
+      } else if (pontuacao >= 5) {
+        resultado.innerHTML = `✨ Mandou bem! Mas dá pra melhorar 😘 (${pontuacao}/7)`;
+      } else {
+        resultado.innerHTML = `😅 Hmmm... vamos ter que conversar 😂 (${pontuacao}/7)`;
+      }
+    });
+  </script>
+</body>
+</html>
